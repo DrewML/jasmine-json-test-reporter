@@ -11,5 +11,9 @@
     "tests"
   ],
   "author": "Andrew Levine <theandrewtizer@gmail.com> (https://github.com/drewml)",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DrewML/jasmine-json-test-reporter.git"
+  }
 }
