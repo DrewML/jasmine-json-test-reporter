@@ -7,7 +7,7 @@ var defaultOpts = {
 };
 
 function reporter(opts) {
-	var options = shallowMerge(defaultOpts, typeof opts === 'object' ? opts : {});
+	this.options = shallowMerge(defaultOpts, typeof opts === 'object' ? opts : {});
 	var specResults = [];
 	var masterResults = Object.create(null);
 
@@ -22,23 +22,22 @@ function reporter(opts) {
 	};
 
 	this.jasmineDone = function() {
-		var resultsOutput = options.beautify ?
-			JSON.stringify(masterResults, null, options.indentationLevel) :
+		var resultsOutput = this.options.beautify ?
+			JSON.stringify(masterResults, null, this.options.indentationLevel) :
 			JSON.stringify(masterResults);
 
-		fs.writeFileSync(options.file, resultsOutput);
+		fs.writeFileSync(this.options.file, resultsOutput + "\n\n");
 	};
 };
 
-function shallowMerge(obj1, obj2) {
-	var mergedObj = {};
+function shallowMerge(defaults, overrides) {
+	var merged = {};
 
-	Object.keys(obj1).forEach(function(key) {
-		if (!obj2[key]) mergedObj[key] = obj1[key];
-		else mergedObj[key] = obj2[key];
+	Object.keys(defaults).forEach(function(key) {
+		merged[key] = (key in overrides) ? overrides[key] : defaults[key]
 	});
 
-	return mergedObj;
+	return merged;
 };
 
 module.exports = reporter;
