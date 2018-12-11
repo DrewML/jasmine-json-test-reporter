@@ -11,7 +11,9 @@
     "tests"
   ],
   "author": "Andrew Levine <theandrewtizer@gmail.com> (https://github.com/drewml)",
-  "contributors": ["Justin Wrobel <justin.wrobel@gmail.com"],
+  "contributors": [
+    "Justin Wrobel <justin.wrobel@gmail.com"
+  ],
   "license": "MIT",
   "scripts": {
     "lint": "eslint . --report-unused-disable-directives",
