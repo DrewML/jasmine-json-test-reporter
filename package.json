@@ -1,6 +1,6 @@
 {
   "name": "jasmine-json-test-reporter",
-  "version": "1.0.0-beta",
+  "version": "1.0.0",
   "description": "Write Jasmine test results to disk in JSON format",
   "main": "index.js",
   "keywords": [
@@ -11,9 +11,22 @@
     "tests"
   ],
   "author": "Andrew Levine <theandrewtizer@gmail.com> (https://github.com/drewml)",
+  "contributors": [
+    "Justin Wrobel <justin.wrobel@gmail.com"
+  ],
   "license": "MIT",
+  "scripts": {
+    "lint": "eslint . --report-unused-disable-directives",
+    "test-only": "jasmine --reporter index.js",
+    "test": "npm run test-only && npm run lint"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/DrewML/jasmine-json-test-reporter.git"
+  },
+  "devDependencies": {
+    "eslint": "^5.6.1",
+    "eslint-config-google": "^0.10.0",
+    "jasmine": "^3.2.0"
   }
 }
